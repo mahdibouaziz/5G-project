@@ -1,6 +1,7 @@
 import { Container, TextField } from "@mui/material";
 import { useState } from "react";
 import "./App.css";
+import Throughput from "./components/Throughput";
 // https://www.youtube.com/watch?v=Jz5g5sIU81U&ab_channel=OurTechnologyPlanet
 function App() {
   const [bandwidth, setBandwidth] = useState(0);
@@ -13,20 +14,8 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <h3>
-          5G NR Throughput Estimation - How much speed or data rate will I get
-          on 5G?
-        </h3>
-        <p>Throughput = Maximum data rate (speed) that we get from 5G</p>
-        <p>
-          The simplest way to estimate the 5G throughput is to calculate the
-          maximum data rate carried by a single Ressource BLock into one slot
-        </p>
-        <p>
-          If we know a single ressource block into one slot than we can
-          calculete it for any bandwidth{" "}
-        </p>
-        <p>1 Ressource block = 12 subCarriers (in the frequency domaine)</p>
+        <Throughput />
+
         <TextField
           className="text"
           fullWidth
