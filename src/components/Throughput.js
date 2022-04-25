@@ -106,7 +106,6 @@ const Throughput = () => {
         value={subCarrier}
         onChange={(e) => {
           setSubCarrier(e.target.value);
-
           setNumberOfRessourceBlock((bandwidth * 1000) / e.target.value / 12);
         }}
       />
@@ -118,7 +117,9 @@ const Throughput = () => {
         <p className="response">
           Bandwidth / SubCarrier spacing /12 (because we have 12 SubCarrier in
           an infinite source block) ={" "}
-          {Math.floor((bandwidth * 1000) / subCarrier / 12)}
+          {subCarrier && (
+            <span>{Math.floor((bandwidth * 1000) / subCarrier / 12)}</span>
+          )}
         </p>
       </div>
 
@@ -127,8 +128,12 @@ const Throughput = () => {
 
         <p className="response">
           We have a guard band (2 prb top and 2 bottom): ={"> "}
-          {Math.floor(numberOfRessourceBlock)}- {4}=
-          {Math.floor(numberOfRessourceBlock - 4)}
+          {numberOfRessourceBlock && (
+            <span>
+              {Math.floor(numberOfRessourceBlock)}- {4}=
+              {Math.floor(numberOfRessourceBlock - 4)}
+            </span>
+          )}
         </p>
       </div>
 
@@ -138,6 +143,7 @@ const Throughput = () => {
         id="outlined-basic"
         label="Number of MIMO layers (0-max4)"
         variant="outlined"
+        type="number"
         value={mimo}
         onChange={(e) => setMimo(e.target.value)}
       />
