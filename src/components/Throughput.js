@@ -156,7 +156,8 @@ const Throughput = () => {
             DownlinkSlots *
             mimo) /
             1024 /
-            1024}
+            1024}{" "}
+          Mbps
         </p>
       </div>
       <p></p>
